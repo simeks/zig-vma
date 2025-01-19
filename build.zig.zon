@@ -1,0 +1,19 @@
+.{
+    .name = "zig-vma",
+    .version = "0.0.0",
+    .dependencies = .{
+        .vma = .{
+            .url = "git+https://github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator.git?ref=master#7ab8483d10b665ba8d478e1502380c40e2374ac7",
+            .hash = "1220b3d6b5002b314b4428967e6ecef8ae1404420697b4de28eb6ee1db7b692a288d",
+        },
+        .vulkan_headers = .{
+            .url = "https://github.com/KhronosGroup/Vulkan-Headers/archive/v1.3.283.tar.gz",
+            .hash = "1220a7e73d72a0d56bc2a65f9d8999a7c019e42260a0744c408d1cded111bc205e10",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+    },
+}
