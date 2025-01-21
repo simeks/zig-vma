@@ -11,7 +11,7 @@ Outline on how to use with [vulkan-zig](https://github.com/Snektron/vulkan-zig).
 ```zig
 {
     .vma = .{
-        .url = "git+https://github.com/simeks/zig-vma.git?ref=master",
+        .url = "git+https://github.com/simeks/zig-vma.git?ref=master#<commit>",
     },
 }
 ```
