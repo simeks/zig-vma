@@ -1,5 +1,6 @@
 .{
-    .name = "zig-vma",
+    .name = .zig_vma,
+    .fingerprint = 0xf869eae64124ed2e,
     .version = "0.0.0",
     .dependencies = .{
         .vma = .{
