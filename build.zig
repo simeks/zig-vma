@@ -7,10 +7,13 @@ pub fn build(b: *std.Build) void {
     const vk_dep = b.dependency("vulkan_headers", .{});
     const vma_dep = b.dependency("vma", .{});
 
-    const lib = b.addStaticLibrary(.{
+    const lib = b.addLibrary(.{
         .name = "VulkanMemoryAllocator",
-        .target = target,
-        .optimize = optimize,
+        .linkage = .dynamic,
+        .root_module = b.createModule(.{
+            .target = target,
+            .optimize = optimize,
+        }),
     });
     lib.linkLibCpp();
     lib.addCSourceFile(.{
