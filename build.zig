@@ -13,10 +13,10 @@ pub fn build(b: *std.Build) void {
         .root_module = b.createModule(.{
             .target = target,
             .optimize = optimize,
+            .link_libcpp = true,
         }),
     });
-    lib.linkLibCpp();
-    lib.addCSourceFile(.{
+    lib.root_module.addCSourceFile(.{
         .file = b.path("vk_mem_alloc.cpp"),
         .flags = &.{
             "--std=c++17",
@@ -24,8 +24,8 @@ pub fn build(b: *std.Build) void {
             "-DVMA_DYNAMIC_VULKAN_FUNCTIONS=1",
         },
     });
-    lib.addIncludePath(vma_dep.path("include"));
-    lib.addIncludePath(vk_dep.path("include"));
+    lib.root_module.addIncludePath(vma_dep.path("include"));
+    lib.root_module.addIncludePath(vk_dep.path("include"));
     lib.installHeadersDirectory(vma_dep.path("include"), "", .{});
     b.installArtifact(lib);
 
